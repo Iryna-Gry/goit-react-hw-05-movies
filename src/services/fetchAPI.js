@@ -38,14 +38,13 @@ export async function getMovieDetails(id) {
   }
 }
 
-export async function getTopFilms() {
+export async function getCast(id) {
   try {
     const response = await axios.get(
-      `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`
+      `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`
     );
-
-    return response.data;
+    return await response.data;
   } catch (error) {
-    console.error('getTopFilms error' + error);
+    console.error('getCast error' + error);
   }
 }

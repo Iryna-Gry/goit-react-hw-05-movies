@@ -9,3 +9,4 @@ export * from './MovieGalleryItem/MovieGalleryItem';
 export * from '../pages/Reviews/Reviews';
 export * from './Searchbar/Searchbar';
 export * from './HeaderLink/HeaderLink.styled';
+export * from './CastGallery/CastGallery';

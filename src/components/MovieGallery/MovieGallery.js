@@ -9,6 +9,7 @@ export const MovieGallery = ({ data }) => {
       {data.map(image => {
         return (
           <MovieGalleryItem
+            path={'/movies/' + image.id}
             src={image.poster_path}
             key={image.id}
             id={image.id}

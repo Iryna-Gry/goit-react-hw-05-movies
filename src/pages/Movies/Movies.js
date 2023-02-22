@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import { MovieGallery, Searchbar, Loader } from 'components';
 import { getMoviesSearch } from 'services/fetchAPI';
 
