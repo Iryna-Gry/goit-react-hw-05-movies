@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchAPI } from 'services/fetchAPI';
-
 import { MovieGallery, Loader } from 'components';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
@@ -32,3 +31,4 @@ export const Home = () => {
     </div>
   );
 };
+export default Home;

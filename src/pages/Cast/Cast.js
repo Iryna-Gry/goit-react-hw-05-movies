@@ -4,7 +4,7 @@ import { getCast } from 'services/fetchAPI';
 import { CastGallery, NotFound } from 'components';
 import css from 'pages/MovieDetails/MovieDetails.module.css';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState(null);
   const { movieId } = useParams();
 
@@ -22,3 +22,4 @@ export const Cast = () => {
     </div>
   );
 };
+export default Cast;

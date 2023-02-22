@@ -4,7 +4,7 @@ import { getReviews } from 'services/fetchAPI';
 import { ReviewGallery, NotFound } from 'components';
 import css from 'pages/MovieDetails/MovieDetails.module.css';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
 
@@ -22,3 +22,5 @@ export const Reviews = () => {
     </div>
   );
 };
+
+export default Reviews;

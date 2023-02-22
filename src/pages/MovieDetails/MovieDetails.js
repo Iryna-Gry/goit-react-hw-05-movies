@@ -5,7 +5,7 @@ import { getMovieDetails } from 'services/fetchAPI';
 import css from 'pages/MovieDetails/MovieDetails.module.css';
 import myImageUrl from 'images/sorry.png';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
@@ -74,3 +74,4 @@ export const MovieDetails = () => {
     </div>
   ) : null;
 };
+export default MovieDetails;

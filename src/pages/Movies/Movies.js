@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { MovieGallery, Searchbar, Loader, NotFound } from 'components';
 import { getMoviesSearch } from 'services/fetchAPI';
 
-export const Movies = () => {
+const Movies = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState('idle');
@@ -41,3 +41,4 @@ export const Movies = () => {
     </main>
   );
 };
+export default Movies;

@@ -31,7 +31,7 @@ ReviewGallery.propTypes = {
     PropTypes.shape({
       author: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     })
   ),
 };
