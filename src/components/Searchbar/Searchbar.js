@@ -27,7 +27,7 @@ export const Searchbar = ({ onFormSubmit }) => {
           autoComplete="off"
           autoFocus
           onChange={handleInputChange}
-          placeholder="Search images and photos"
+          placeholder="Search movies"
           value={keyword}
         />
       </form>

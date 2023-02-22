@@ -15,6 +15,7 @@ export const CastGallery = ({ data }) => {
               src={
                 item.profile_path ? BASE_URL + item.profile_path : noPosterImg
               }
+              alt={item.original_name}
             />
             <p className={css.Character_name}>{item.character}</p>
             <p className={css.Actor_name}>{item.original_name}</p>

@@ -48,3 +48,13 @@ export async function getCast(id) {
     console.error('getCast error' + error);
   }
 }
+export async function getReviews(id) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}`
+    );
+    return await response.data;
+  } catch (error) {
+    console.error('getReviews error' + error);
+  }
+}

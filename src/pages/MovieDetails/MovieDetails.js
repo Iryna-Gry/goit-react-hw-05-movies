@@ -3,7 +3,7 @@ import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/fetchAPI';
 import css from 'pages/MovieDetails/MovieDetails.module.css';
-import { Container } from 'components';
+import myImageUrl from 'images/sorry.png';
 
 export const MovieDetails = () => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
@@ -26,7 +26,9 @@ export const MovieDetails = () => {
         <div>
           <div className={css.Image__container}>
             <img
-              src={BASE_URL + movie.poster_path}
+              src={
+                movie.poster_path ? BASE_URL + movie.poster_path : myImageUrl
+              }
               className={css.Movie__img}
               alt={movie.original_title}
             />

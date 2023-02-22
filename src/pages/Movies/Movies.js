@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import { MovieGallery, Searchbar, Loader } from 'components';
+import { MovieGallery, Searchbar, Loader, NotFound } from 'components';
 import { getMoviesSearch } from 'services/fetchAPI';
 
 export const Movies = () => {
@@ -33,7 +32,11 @@ export const Movies = () => {
       <Searchbar onFormSubmit={handleSearchSubmit} />;
       <div>
         {status === 'pending' ? <Loader></Loader> : null}
-        {movies.length > 0 ? <MovieGallery data={movies}></MovieGallery> : null}
+        {movies.length > 0 ? (
+          <MovieGallery data={movies}></MovieGallery>
+        ) : (
+          <NotFound />
+        )}
       </div>
     </main>
   );

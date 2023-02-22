@@ -1,9 +1,9 @@
 import css from 'components/MovieGalleryItem/MovieGalleryItem.module.css';
 import myImageUrl from 'images/sorry.png';
 import PropTypes from 'prop-types';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export const MovieGalleryItem = ({ src, alt, largeImageURL, id, path }) => {
+export const MovieGalleryItem = ({ src, alt, largeImageURL, path }) => {
   const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
   const noPosterImg = myImageUrl;
 
@@ -24,5 +24,4 @@ MovieGalleryItem.propTypes = {
   src: PropTypes.string,
   largeImageURL: PropTypes.string,
   alt: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
 };

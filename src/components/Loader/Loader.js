@@ -15,7 +15,7 @@ export const Loader = () => {
         height="80"
         width="80"
         radius="9"
-        color="#3f51b5"
+        color="crimson"
         ariaLabel="three-dots-loading"
         wrapperStyle={{
           marginLeft: 'auto',
