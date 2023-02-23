@@ -3,7 +3,7 @@ import css from 'components/Searchbar/Searchbar.module.css';
 import { AiOutlineSearch } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 
-export const Searchbar = ({ onFormSubmit }) => {
+export const Searchbar = ({ value, onFormSubmit }) => {
   const [keyword, setKeyword] = useState('');
 
   const handleInputChange = event => setKeyword(event.target.value);
@@ -28,7 +28,7 @@ export const Searchbar = ({ onFormSubmit }) => {
           autoFocus
           onChange={handleInputChange}
           placeholder="Search movies"
-          value={keyword}
+          value={keyword || value}
         />
       </form>
     </header>
@@ -37,4 +37,5 @@ export const Searchbar = ({ onFormSubmit }) => {
 
 Searchbar.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };

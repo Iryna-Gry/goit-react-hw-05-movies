@@ -3,7 +3,7 @@ import css from 'components/MovieGallery/MovieGallery.module.css';
 import { MovieGalleryItem } from 'components';
 import PropTypes from 'prop-types';
 
-export const MovieGallery = ({ data }) => {
+export const MovieGallery = ({ data, state }) => {
   return (
     <ul className={css.MovieGallery}>
       {data.map(image => {
@@ -16,6 +16,7 @@ export const MovieGallery = ({ data }) => {
             alt={image.original_title}
             smallImageURL={image.poster_path}
             largeImageURL={image.backdrop_path}
+            state={{ ...state }}
           ></MovieGalleryItem>
         );
       })}
@@ -32,4 +33,5 @@ MovieGallery.propTypes = {
       original_title: PropTypes.string.isRequired,
     })
   ),
+  state: PropTypes.node,
 };

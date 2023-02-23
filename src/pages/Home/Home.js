@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { fetchAPI } from 'services/fetchAPI';
 import { MovieGallery, Loader } from 'components';
+import { useLocation } from 'react-router-dom';
 
-const Home = () => {
+export const Home = () => {
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     setStatus('pending');
@@ -24,11 +26,10 @@ const Home = () => {
     <div>
       {status === 'pending' ? <Loader></Loader> : null}
       {movies.length > 0 ? (
-        <MovieGallery data={movies}></MovieGallery>
+        <MovieGallery data={movies} state={{ from: location }}></MovieGallery>
       ) : (
         error && <p>Something went wrong. Please, refresh the page</p>
       )}
     </div>
   );
 };
-export default Home;
