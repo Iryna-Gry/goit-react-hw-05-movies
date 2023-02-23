@@ -7,7 +7,8 @@ export * from './MovieGallery/MovieGallery';
 export * from './MovieGalleryItem/MovieGalleryItem';
 
 export * from './Searchbar/Searchbar';
-export * from './HeaderLink/HeaderLink.styled';
+export * from './Header/HeaderLink.styled';
 export * from './CastGallery/CastGallery';
 export * from './ReviewGallery/ReviewGallery';
 export * from './NotFound/NotFound';
+export * from './MovieCard/MovieCard';

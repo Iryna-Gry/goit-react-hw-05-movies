@@ -3,20 +3,19 @@ import css from 'components/MovieGallery/MovieGallery.module.css';
 import { MovieGalleryItem } from 'components';
 import PropTypes from 'prop-types';
 
-export const MovieGallery = ({ data, state }) => {
+export const MovieGallery = ({ data }) => {
   return (
     <ul className={css.MovieGallery}>
-      {data.map(image => {
+      {data.map(({ id, poster_path, original_title, backdrop_path }) => {
         return (
           <MovieGalleryItem
-            path={'/movies/' + image.id}
-            src={image.poster_path}
-            key={image.id}
-            id={image.id}
-            alt={image.original_title}
-            smallImageURL={image.poster_path}
-            largeImageURL={image.backdrop_path}
-            state={{ ...state }}
+            path={`/movies/${id}`}
+            src={poster_path}
+            key={id}
+            id={id}
+            alt={original_title}
+            smallImageURL={poster_path}
+            largeImageURL={backdrop_path}
           ></MovieGalleryItem>
         );
       })}

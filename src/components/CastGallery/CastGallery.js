@@ -10,7 +10,7 @@ export const CastGallery = ({ data }) => {
     <ul className={css.Cast_Container}>
       {data.map(item => {
         return (
-          <li key={item.id} className={css.Img_Container}>
+          <li key={item.cast_id} className={css.Img_Container}>
             <img
               src={
                 item.profile_path ? BASE_URL + item.profile_path : noPosterImg
@@ -32,7 +32,7 @@ CastGallery.propTypes = {
       profile_path: PropTypes.string,
       character: PropTypes.string.isRequired,
       original_name: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
+      cast_id: PropTypes.number.isRequired,
     })
   ),
 };

@@ -1,55 +1,49 @@
 import { useState, useEffect } from 'react';
 import { MovieGallery, Searchbar, Loader, NotFound } from 'components';
 import { getMoviesSearch } from 'services/fetchAPI';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [status, setStatus] = useState('idle');
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams('');
-  const location = useLocation();
-
+  const query = searchParams.get('filter') ?? '';
   useEffect(() => {
-    if (searchParams.get('filter') === '' || undefined) {
+    if (query === '' || undefined || null) {
       return;
     }
-    setStatus('pending');
+    setIsLoading(true);
 
-    getMoviesSearch(searchParams.get('filter'))
+    getMoviesSearch(query)
       .then(response => {
+        if (response.results.length === 0) {
+          return <NotFound />;
+        }
         setMovies([...response.results]);
-        setStatus('completed');
+        setIsLoading(false);
       })
       .catch(error => setError(error));
-  }, [searchParams]);
+  }, [query]);
 
   const handleSearchSubmit = keyword => {
     if (keyword === '') {
       alert('Searchfield is empty. Please, specify your search request.');
       return;
     } else {
-      setSearchParams(keyword !== '' ? { filter: keyword } : {});
+      setSearchParams({ filter: keyword });
     }
   };
 
   return (
     <main>
-      <Searchbar
-        onFormSubmit={handleSearchSubmit}
-        value={searchParams.get('filter') ?? ''}
-      />
-      ;
+      <Searchbar onFormSubmit={handleSearchSubmit} />
       <div>
-        {status === 'pending' ? <Loader></Loader> : null}
-        {movies.length > 0 && searchParams.get('filter') ? (
-          <MovieGallery data={movies} state={{ from: location }}></MovieGallery>
-        ) : error ? (
-          <p>Something went wrong. Please, refresh the page</p>
-        ) : (
-          <NotFound />
-        )}
+        {isLoading && <Loader></Loader>}
+        {movies.length > 0 ? <MovieGallery data={movies}></MovieGallery> : null}
+        {error && <p>Something went wrong. Please, refresh the page</p>}
       </div>
     </main>
   );
 };
+export default Movies;

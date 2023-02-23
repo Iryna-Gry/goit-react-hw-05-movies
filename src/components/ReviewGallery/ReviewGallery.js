@@ -6,12 +6,12 @@ export const ReviewGallery = ({ data }) => {
   const [showMore, setShowMore] = useState(false);
   return (
     <ul className={css.Review_Container}>
-      {data.map(item => {
+      {data.map(({ id, author, content }) => {
         return (
-          <li key={item.id}>
-            <p className={css.Review_name}>{item.author}</p>
+          <li key={id}>
+            <p className={css.Review_name}>{author}</p>
             <p className={css.Review_text}>
-              {showMore ? item.content : item.content.substring(0, 250)}
+              {showMore ? content : content.substring(0, 250)}
               <button
                 className={css.showMore_Btn}
                 onClick={() => setShowMore(!showMore)}
